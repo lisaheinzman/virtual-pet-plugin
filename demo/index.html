@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Virtual Interactive Pet Companion Demo</title>
     <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/script.js"></script>
   </head>
   <body>
     <div id="page-container">
       <h1>Pet Name</h1>
       <div id="center-container">
+        <img id="pet-image" src="assets/pet.png" alt="cat" />
         <div id="skills-container">
+          <h3>Pet Stats</h3>
           <div class="progress-container">
-            <p>health</p>
-            <div class="progress-bar">
+            <p>happiness</p>
+            <div class="progress-bar" id="happyBar">
               <div class="progress-square"></div>
               <div class="progress-square"></div>
               <div class="progress-square"></div>
@@ -24,8 +27,8 @@
             </div>
           </div>
           <div class="progress-container">
-            <p>hunger</p>
-            <div class="progress-bar">
+            <p>health</p>
+            <div class="progress-bar" id="hungerBar">
               <div class="progress-square"></div>
               <div class="progress-square"></div>
               <div class="progress-square"></div>
@@ -38,8 +41,20 @@
         </div>
       </div>
       <div id="button-container">
-        <button type="button" class="action-button">Pet</button>
-        <button type="button" class="action-button">Give Treat</button>
+        <button
+          type="button"
+          onclick="addProgress('happyBar')"
+          class="action-button"
+        >
+          Pet
+        </button>
+        <button
+          type="button"
+          onclick="addProgress('hungerBar')"
+          class="action-button"
+        >
+          Treat
+        </button>
       </div>
     </div>
     <script src="assets/js/pet.js"></script>
