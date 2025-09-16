@@ -21,6 +21,7 @@ body {
   width: 200px;
   border: black solid;
   border-width: 2.5px 1px 1px 2.5px;
+  background: #c494c7;
 }
 #skills-container {
   border: black 1px solid;
@@ -40,7 +41,7 @@ body {
 }
 .progress-square {
   height: 10px;
-  width: 10px;
+  width: 5px;
   margin: 1px;
 }
 .progress-square.filled {
