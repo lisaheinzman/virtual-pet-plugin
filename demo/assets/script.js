@@ -13,7 +13,7 @@ const petImage = document.getElementById("pet-image");
 function displayPetState(state) {
   switch (state) {
     case petStates.NORMAL:
-      petImage.src = "assets/cat-blink.gif";
+      petImage.src = "assets/cat.png";
       break;
     case petStates.HAPPY:
       petImage.src = "assets/cat-sparkle.gif";
@@ -87,6 +87,7 @@ function decayProgress(barId) {
   }
 }
 
-//setInterval(() => changeState(petStates.BLINK), 4000);
+setInterval(() => changeState(petStates.BLINK), 4000);
+clearInterval();
 setInterval(() => decayProgress("happyBar"), 20000);
 setInterval(() => decayProgress("hungerBar"), 50000);

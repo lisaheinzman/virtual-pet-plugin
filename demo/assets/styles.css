@@ -10,6 +10,17 @@ body {
 
 #page-container {
   text-align: center;
+  border: black solid;
+}
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: black solid;
+  padding: 10px;
+}
+#close-button {
+  border: black solid;
+  padding: 2px;
 }
 #center-container {
   display: flex;
@@ -21,23 +32,32 @@ body {
   width: 200px;
   border: black solid;
   border-width: 2.5px 1px 1px 2.5px;
-  background: #c494c7;
+  background: #b9bdb8;
+  margin-left: 10px;
 }
 #skills-container {
   border: black 1px solid;
-  padding: 5px;
+  height: 10%;
+  margin-right: 10px;
+}
+#skill-title {
+  border-bottom: black 1px solid;
+  padding-bottom: 5px;
+}
+.progress-icon {
+  height: 50px;
+  width: 50px;
 }
 .progress-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
+  padding-inline: 5px;
 }
 .progress-bar {
   display: flex;
   justify-content: space-between;
   border: black 1px solid;
-  margin: 5px;
 }
 .progress-square {
   height: 10px;
@@ -54,4 +74,7 @@ body {
 }
 .action-button {
   margin-inline: 10px;
+  border: black solid;
+  border-width: 1px 2px 2px 1px;
+  background-color: #f5f5f5;
 }
