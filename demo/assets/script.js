@@ -37,8 +37,8 @@ function changeState(newState) {
 }
 
 let progress = {
-  hungerBar: 0,
-  happyBar: 0,
+  hunger: 0,
+  happy: 0,
 };
 
 function disableButtons() {
@@ -51,11 +51,11 @@ function disableButtons() {
 }
 
 function animateEvent(barID) {
-  if (barID === "hungerBar") {
+  if (barID === "hunger") {
     changeState(petStates.EAT);
     disableButtons();
   }
-  if (barID === "happyBar") {
+  if (barID === "happy") {
     changeState(petStates.PET);
     disableButtons();
   }
@@ -87,7 +87,15 @@ function decayProgress(barId) {
   }
 }
 
-setInterval(() => changeState(petStates.BLINK), 4000);
+//setInterval(() => changeState(petStates.BLINK), 4000);
 clearInterval();
-setInterval(() => decayProgress("happyBar"), 20000);
-setInterval(() => decayProgress("hungerBar"), 50000);
+const intervals = {};
+intervals["happy"] = setInterval(() => decayProgress("happy"), 20000);
+intervals["hunger"] = setInterval(() => decayProgress("hunger"), 20000);
+
+function handlePetClick(barID) {
+  clearInterval(intervals[barID]);
+  setTimeout(() => addProgress(barID), 2000);
+  animateEvent(barID);
+  intervals[barID] = setInterval(() => decayProgress(barID), 20000);
+}
