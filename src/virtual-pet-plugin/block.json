@@ -12,9 +12,13 @@
     "html": false
   },
   "attributes": {
-    "content": {
+    "petName": {
       "type": "string",
       "default": "Pet Name"
+    },
+    "browserTitle": {
+      "type": "string",
+      "default": "VirtualPet.com"
     }
   },
   "textdomain": "virtual-pet-plugin",

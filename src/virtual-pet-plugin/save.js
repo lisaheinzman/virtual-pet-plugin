@@ -11,18 +11,18 @@ import cat from "../../assets/cat.png";
 
 export default function save({ attributes }) {
   const blockProps = useBlockProps.save();
+  const { petName, browserTitle } = attributes;
 
   return (
     <div {...blockProps}>
-      {/* Output the text stored in the content attribute */}
       <div id="page-container">
         <div id="header-container">
-          <h1 id="header-title">MySite.com</h1>
+          <h1 id="header-title">{browserTitle}</h1>
           <div>
             <h1 id="close-button">X</h1>
           </div>
         </div>
-        <h2>Pet Name</h2>
+        <h2>{petName}</h2>
         <div id="center-container">
           <img id="pet-image" src={cat} alt="cat" />
           <div id="skills-container">
