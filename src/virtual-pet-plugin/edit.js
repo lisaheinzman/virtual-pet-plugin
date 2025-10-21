@@ -4,12 +4,14 @@ import {
   RichText,
   InspectorControls,
 } from "@wordpress/block-editor";
-import { PanelBody, TextControl } from "@wordpress/components";
+import { PanelBody, RadioControl, TextControl } from "@wordpress/components";
 import "./editor.scss";
 
 export default function edit({ attributes, setAttributes }) {
-  const blockProps = useBlockProps();
-  const { petName, browserTitle } = attributes;
+  const { petName, browserTitle, colorScheme } = attributes;
+  const blockProps = useBlockProps({
+    className: colorScheme,
+  });
 
   return (
     <>
@@ -25,6 +27,17 @@ export default function edit({ attributes, setAttributes }) {
             label={"Pet Name"}
             value={petName}
             onChange={(newValue) => setAttributes({ petName: newValue })}
+          />
+          <RadioControl
+            label="Color Scheme"
+            selected={colorScheme}
+            options={[
+              { label: "pink", value: "pink" },
+              { label: "blue", value: "blue" },
+              { label: "purple", value: "purple" },
+              { label: "green", value: "green" },
+            ]}
+            onChange={(newValue) => setAttributes({ colorScheme: newValue })}
           />
         </PanelBody>
       </InspectorControls>

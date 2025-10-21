@@ -10,8 +10,10 @@ import heart from "../../assets/heart-icon.png";
 import cat from "../../assets/cat.png";
 
 export default function save({ attributes }) {
-  const blockProps = useBlockProps.save();
-  const { petName, browserTitle } = attributes;
+  const { petName, browserTitle, colorScheme } = attributes;
+  const blockProps = useBlockProps.save({
+    className: colorScheme,
+  });
 
   return (
     <div {...blockProps}>
@@ -22,11 +24,11 @@ export default function save({ attributes }) {
             <h1 id="close-button">X</h1>
           </div>
         </div>
-        <h2>{petName}</h2>
+        <h2 id="pet-name">{petName}</h2>
         <div id="center-container">
           <img id="pet-image" src={cat} alt="cat" />
-          <div id="skills-container">
-            <p id="skill-title">Pet Stats</p>
+          <div id="stats-container">
+            <p id="stat-title">Pet Stats</p>
             <div class="progress-container">
               <img class="progress-icon" src={heart} alt="heart icon" />
               <div class="progress-bar" id="happy">
@@ -60,18 +62,10 @@ export default function save({ attributes }) {
           </div>
         </div>
         <div id="button-container">
-          <button
-            type="button"
-            onclick="handlePetClick('happy')"
-            class="action-button"
-          >
+          <button data-type="happy" className="action-button">
             Pet
           </button>
-          <button
-            type="button"
-            onclick="handlePetClick('hunger')"
-            class="action-button"
-          >
+          <button data-type="hunger" className="action-button">
             Treat
           </button>
         </div>

@@ -19,6 +19,10 @@
     "browserTitle": {
       "type": "string",
       "default": "VirtualPet.com"
+    },
+    "colorScheme": {
+      "type": "string",
+      "default": "default"
     }
   },
   "textdomain": "virtual-pet-plugin",

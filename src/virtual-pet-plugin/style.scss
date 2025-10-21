@@ -1,63 +1,142 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.default {
+  --base: #6e49cd;
+  --base-light: #f4dbe8;
+  --base-lightest: #fbeaf2;
+  --base-dark: #d76ea5;
+  --base-muted: #c1a8aa;
+  --white: #ffffff;
+  --black: #000000;
+  --light-gray: #d9d9d9;
+  --dark-gray: #605f5f;
+  --gray-tinted: #ecf9f9;
+  --black: #000000;
+  --dark-gray: #605f5f;
+}
+
+.pink {
+  --base: #cd498d;
+  --base-light: #f4dbe8;
+  --base-lightest: #fbeaf2;
+  --base-dark: #d76ea5;
+  --base-muted: #c1a8aa;
+  --white: #ffffff;
+  --black: #000000;
+  --light-gray: #d9d9d9;
+  --dark-gray: #605f5f;
+  --gray-tinted: #ecf9f9;
+  --black: #000000;
+  --dark-gray: #605f5f;
+}
+.blue {
+  --base: #469bbf;
+  --base-light: #cfe5ff;
+  --base-lightest: #e7f2ff;
+  --base-dark: #009be5;
+  --base-muted: #c9c4d6;
+  --white: #ffffff;
+  --black: #000000;
+  --light-gray: #d9d9d9;
+  --dark-gray: #605f5f;
+  --gray-tinted: #faf2f7;
+  --black: #000000;
+  --dark-gray: #605f5f;
+}
+.purple {
+  --base: #8d5bc3;
+  --base-light: #e1d8ff;
+  --base-lightest: #efebff;
+  --base-dark: #9058ff;
+  --base-muted: #ceb3cd;
+  --white: #ffffff;
+  --black: #000000;
+  --light-gray: #d9d9d9;
+  --dark-gray: #605f5f;
+  --gray-tinted: #ecf9f9;
+  --black: #000000;
+  --dark-gray: #605f5f;
+}
+
+.green {
+  --base: #52c752;
+  --base-light: #c7ffc6;
+  --base-lightest: #ddffdd;
+  --base-dark: #00b401;
+  --base-muted: #b0d4c8;
+  --white: #ffffff;
+  --black: #000000;
+  --light-gray: #d9d9d9;
+  --dark-gray: #605f5f;
+  --gray-tinted: #faf2f7;
+  --black: #000000;
+  --dark-gray: #605f5f;
+}
 
 .wp-block-create-block-virtual-pet-plugin {
-  background-color: #21759b;
+  background-color: var(--black);
   color: #fff;
   padding: 2px;
 }
 
+#page-container {
+  text-align: center;
+  border: var(--black) solid 1px;
+  background: var(--base-lightest);
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 #header-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: black solid;
+  border-bottom: var(--black);
   padding: 10px;
-  background: #7e7e7e;
+  background: var(--base);
 }
 #header-container h1 {
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
-#close-button {
-  border: black 3px solid;
-  padding-inline: 6px;
+#header-title {
+  color: var(--white);
+  font-weight: bold;
 }
-#page-container {
-  text-align: center;
-  border: black solid;
-  background: #919191;
+#close-button {
+  background: var(--base-lightest);
+  border: var(--black) 2px solid;
+  padding-inline: 10px;
+  margin-left: 10px;
+}
+#close-button {
+  color: var(--black);
 }
 #center-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 10px;
+}
+#pet-name {
+  color: var(--black);
 }
 #pet-image {
   height: 200px;
   width: 200px;
-  border: black solid;
+  border: var(--dark-gray) solid;
   border-width: 2.5px 1px 1px 2.5px;
   border-radius: 2.5px;
-  background: #b9bdb8;
+  background: var(--base-muted);
   margin-left: 10px;
 }
-#skills-container {
+#stats-container {
   margin-top: 20px;
-  border: black solid;
-  border-width: 1px 1.5px 1.5px 1px;
+  border: var(--black) solid;
+  border-width: 1px 2px 2px 1px;
   height: 10%;
   margin-right: 10px;
   border-radius: 2.5px;
-  background: #a7a7a7;
+  background: var(--base-light);
 }
-#skill-title {
-  border-bottom: black 1px solid;
-  background: #939393;
+#stat-title {
+  border-bottom: var(--black) 1px solid;
+  background: var(--base-dark);
   padding-top: 5px;
   padding-bottom: 5px;
   margin-block-start: 0px;
@@ -76,7 +155,9 @@
 .progress-bar {
   display: flex;
   justify-content: space-between;
-  border: black 1px solid;
+  border: var(--black) solid;
+  border-width: 1px 2px 2px 1px;
+  background-color: var(--light-gray);
 }
 .progress-square {
   height: 10px;
@@ -84,7 +165,7 @@
   margin: 1px;
 }
 .progress-square.filled {
-  background-color: green;
+  background-color: var(--black);
 }
 #button-container {
   display: flex;
@@ -93,8 +174,8 @@
 }
 .action-button {
   margin-inline: 10px;
-  border: black solid;
+  border: var(--black) solid;
   border-width: 1px 2px 2px 1px;
-  background-color: #f5f5f5;
+  background-color: var(--gray-tinted);
   border-radius: 2.5px;
 }

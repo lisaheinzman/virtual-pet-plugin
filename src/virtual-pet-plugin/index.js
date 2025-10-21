@@ -36,6 +36,11 @@ registerBlockType(metadata.name, {
       type: "string",
       default: "VirtualPet.com",
     },
+    colorScheme: {
+      type: "string",
+      default: "default",
+    },
+    viewScript: "file./view.js",
   },
   edit: Edit,
   save,
