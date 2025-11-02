@@ -32,9 +32,9 @@ export default function save({ attributes }) {
             <div class="progress-container">
               <img class="progress-icon" src={heart} alt="heart icon" />
               <div class="progress-bar" id="happy">
-                <div class="progress-square"></div>
-                <div class="progress-square"></div>
-                <div class="progress-square"></div>
+                <div class="progress-square filled"></div>
+                <div class="progress-square filled"></div>
+                <div class="progress-square filled"></div>
                 <div class="progress-square"></div>
                 <div class="progress-square"></div>
                 <div class="progress-square"></div>
@@ -47,9 +47,9 @@ export default function save({ attributes }) {
             <div class="progress-container">
               <img class="progress-icon" src={turkeyLeg} alt="turkey leg" />
               <div class="progress-bar" id="hunger">
-                <div class="progress-square"></div>
-                <div class="progress-square"></div>
-                <div class="progress-square"></div>
+                <div class="progress-square filled"></div>
+                <div class="progress-square filled"></div>
+                <div class="progress-square filled"></div>
                 <div class="progress-square"></div>
                 <div class="progress-square"></div>
                 <div class="progress-square"></div>

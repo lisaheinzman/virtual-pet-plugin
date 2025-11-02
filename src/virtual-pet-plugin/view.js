@@ -2,6 +2,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import catPet from "../../assets/cat-sparkle.gif";
 import catEat from "../../assets/cat-eat.gif";
 import catNormal from "../../assets/cat.png";
+import catSleep from "../../assets/cat-sleep.gif";
 
 // Object that defines all possible states of the virtual pet
 const petStates = {
@@ -16,12 +17,14 @@ const petStates = {
 
 // Object that defines the two types of progress
 const progress = {
-  hunger: 0,
-  happy: 0,
+  hunger: 3,
+  happy: 3,
 };
 
+// Stores the pet's image into petImage so it can be modified
 const petImage = document.getElementById("pet-image");
 
+// Sets the pet's image to match the paramater state
 function displayPetState(state) {
   switch (state) {
     case petStates.NORMAL:
@@ -32,6 +35,9 @@ function displayPetState(state) {
       break;
     case petStates.EAT:
       petImage.src = catEat;
+      break;
+    case petStates.SLEEPY:
+      petImage.src = catSleep;
       break;
   }
 }
@@ -102,23 +108,35 @@ clearInterval();
 
 const intervals = {};
 // delays the decay of progress
-intervals["happy"] = setInterval(() => decayProgress("happy"), 20000);
+intervals["happy"] = setInterval(() => decayProgress("happy"), 30000);
 intervals["hunger"] = setInterval(() => decayProgress("hunger"), 20000);
+intervals["fallAsleep"] = setTimeout(
+  () => displayPetState(petStates.SLEEPY),
+  20000
+);
 
 /*
  * Handles a button interaction by calling functions that:
  * - Animate the corresponding event
  * - Add progress to the corresponding progress bar after brief pause for the animation
- * - Reset the decay timer (delays the decay of progress)
+ * - Reset the decay timer (delays the decay of progress) of the
+ * - Resets the sleep timer
  * - Disable all buttons during animation
  */
 function handlePetClick(barID) {
   console.log(barID);
+  // stop the countown of decay progress to corresponding event
   clearInterval(intervals[barID]);
+  clearTimeout(intervals["fallAsleep"]);
   animateEvent(barID);
   setTimeout(() => addProgress(barID), 2000);
   disableButtons();
+  // starts the countown of decay progress to corresponding event
   intervals[barID] = setInterval(() => decayProgress(barID), 20000);
+  intervals["fallAsleep"] = setTimeout(
+    () => displayPetState(petStates.SLEEPY),
+    20000
+  );
 }
 
 /*
