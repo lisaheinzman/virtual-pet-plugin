@@ -1,3 +1,4 @@
+//TESTING UPDATE
 const petStates = {
   NORMAL: "normal",
   HAPPY: "happy",
