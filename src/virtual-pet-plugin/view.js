@@ -3,16 +3,22 @@ import catPet from "../../assets/cat-sparkle.gif";
 import catEat from "../../assets/cat-eat.gif";
 import catNormal from "../../assets/cat.png";
 import catSleep from "../../assets/cat-sleep.gif";
+import catSad from "../../assets/cat-sad.gif";
+import catSadIdle from "../../assets/cat-sad-idle.gif";
+import catHappyIdle from "../../assets/cat-happy.gif";
+import catHappy from "../../assets/cat-happy-transition.gif";
 
 // Object that defines all possible states of the virtual pet
 const petStates = {
   NORMAL: "normal", // default state
   HAPPY: "happy", // when progress = 10/10
-  SAD: "hunger", // when progress = 0/10
+  SAD: "sad", // when progress = 0/10
   SLEEPY: "sleeping", // when time since last interaction is more than 30 seconds
   BLINK: "blinking",
   PET: "petted", // when cat is being pet
   EAT: "eating", // when cat is given treat
+  SADIDLE: "sadidle",
+  HAPPYIDLE: "happyidle",
 };
 
 // Object that defines the two types of progress
@@ -38,6 +44,18 @@ function displayPetState(state) {
       break;
     case petStates.SLEEPY:
       petImage.src = catSleep;
+      break;
+    case petStates.SAD:
+      petImage.src = catSad;
+      break;
+    case petStates.SADIDLE:
+      petImage.src = catSadIdle;
+      break;
+    case petStates.HAPPY:
+      petImage.src = catHappy;
+      break;
+    case petStates.HAPPYIDLE:
+      petImage.src = catHappyIdle;
       break;
   }
 }
@@ -83,6 +101,9 @@ function addProgress(type) {
   }
   if (progress[type] === square.length) {
     displayPetState(petStates.HAPPY);
+    setTimeout(() => displayPetState(petStates.HAPPYIDLE), 600);
+    setTimeout(() => displayPetState(petStates.NORMAL), 10000);
+    console.log("Triggering HAPPY IDLE");
   } else {
     displayPetState(petStates.NORMAL);
   }
@@ -101,6 +122,12 @@ function decayProgress(barId) {
     progress[barId]--;
     console.log(square[progress[barId]]);
     square[progress[barId]].classList.remove("filled");
+    if (progress[barId] === 0) {
+      displayPetState(petStates.SAD);
+      setTimeout(() => displayPetState(petStates.SADIDLE), 600);
+      console.log("Triggering SAD IDLE");
+      //maybe should also reset sleep timer
+    }
   }
 }
 
@@ -109,10 +136,10 @@ clearInterval();
 const intervals = {};
 // delays the decay of progress
 intervals["happy"] = setInterval(() => decayProgress("happy"), 30000);
-intervals["hunger"] = setInterval(() => decayProgress("hunger"), 20000);
-intervals["fallAsleep"] = setTimeout(
+intervals["hunger"] = setInterval(() => decayProgress("hunger"), 7000);
+intervals["fallAsleep"] = setInterval(
   () => displayPetState(petStates.SLEEPY),
-  20000
+  90000
 );
 
 /*
@@ -135,7 +162,7 @@ function handlePetClick(barID) {
   intervals[barID] = setInterval(() => decayProgress(barID), 20000);
   intervals["fallAsleep"] = setTimeout(
     () => displayPetState(petStates.SLEEPY),
-    20000
+    90000
   );
 }
 

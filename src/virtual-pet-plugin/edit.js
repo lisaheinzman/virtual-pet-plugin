@@ -6,6 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, RadioControl, TextControl } from "@wordpress/components";
 import "./editor.scss";
+import cat from "../../assets/cat.png";
 
 export default function edit({ attributes, setAttributes }) {
   const { petName, browserTitle, colorScheme } = attributes;
@@ -43,7 +44,18 @@ export default function edit({ attributes, setAttributes }) {
       </InspectorControls>
       {/* Block content preview in editor */}
       <div {...blockProps}>
-        <p>{petName}</p>
+        <div id="page-container">
+          <div id="header-container">
+            <h1 id="header-title">{browserTitle}</h1>
+            <div>
+              <h1 id="close-button">X</h1>
+            </div>
+          </div>
+          <h2 id="pet-name">{petName}</h2>
+          <div id="center-container">
+            <img id="pet-image-edit" src={cat} alt="cat" />
+          </div>
+        </div>
       </div>
     </>
   );

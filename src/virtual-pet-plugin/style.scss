@@ -125,6 +125,16 @@
   background: var(--base-muted);
   margin-left: 10px;
 }
+#pet-image-edit {
+  height: 200px;
+  width: 200px;
+  border: var(--dark-gray) solid;
+  border-width: 2.5px 1px 1px 2.5px;
+  border-radius: 2.5px;
+  background: var(--base-muted);
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
 #stats-container {
   margin-top: 20px;
   border: var(--black) solid;
